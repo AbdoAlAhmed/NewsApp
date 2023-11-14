@@ -1,9 +1,12 @@
 package com.abdo.news.data.model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "article")
 data class Article(
+    @PrimaryKey(autoGenerate = true)
+    var id: Int? = null,
     val author: String,
     val content: String,
     val description: String,

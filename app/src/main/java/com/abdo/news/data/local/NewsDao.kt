@@ -9,15 +9,15 @@ import androidx.room.Query
 import com.abdo.news.data.model.NewsResponse
 
 @Dao
-interface Dao {
+interface NewsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(newsRespones: NewsResponse)
+    suspend fun insert(newsResponse: NewsResponse)
 
 
     @Query("SELECT * FROM article")
      fun getArticle():LiveData<NewsResponse>
 
     @Delete
-    suspend fun delete(newRespones: NewsResponse)
+    suspend fun delete(newResponse: NewsResponse)
 }

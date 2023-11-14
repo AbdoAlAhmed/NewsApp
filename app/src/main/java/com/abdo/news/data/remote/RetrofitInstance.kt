@@ -1,6 +1,6 @@
 package com.abdo.news.data.remote
 
-import com.abdo.news.util.Constances.Companion.BASE_URL
+import com.abdo.news.util.Const.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

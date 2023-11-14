@@ -1,16 +1,18 @@
 package com.abdo.news.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.abdo.news.R
+import androidx.fragment.app.Fragment
+import com.abdo.news.databinding.FragmentSavedBinding
+import com.abdo.news.viewmodel.NewsViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class SavedFragment : Fragment() {
-
-
+    private val newsViewModel by viewModel<NewsViewModel>()
+    private lateinit var binding: FragmentSavedBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,7 +23,11 @@ class SavedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_saved, container, false)
+        binding = FragmentSavedBinding.inflate(layoutInflater, container, false)
+        binding.newsViewModel = newsViewModel
+        binding.lifecycleOwner = this
+
+        return binding.root
     }
 
 

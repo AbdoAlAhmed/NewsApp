@@ -1,13 +1,16 @@
-package com.abdo.news.data.repo
+package com.abdo.news.repo
 
 import com.abdo.news.data.local.NewsDatabase
 import com.abdo.news.data.model.NewsResponse
 import com.abdo.news.data.remote.RetrofitInstance
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
 class NewsRepo(
-    private val remote: RetrofitInstance,
-    private val local: NewsDatabase
-) {
+    private val remote: RetrofitInstance
+) : KoinComponent {
+
+    private val local: NewsDatabase by inject()
     suspend fun getBreakingNews(country: String, page: Int) =
         remote.api.getBreakingNews(country, page)
 
