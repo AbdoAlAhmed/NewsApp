@@ -1,15 +1,16 @@
 package com.abdo.news.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.abdo.news.R
+import androidx.fragment.app.Fragment
+import com.abdo.news.databinding.FragmentArticleBinding
 
 
 class ArticleFragment : Fragment() {
 
+    private lateinit var binding: FragmentArticleBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,7 +21,12 @@ class ArticleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_article, container, false)
+        binding = FragmentArticleBinding.inflate(layoutInflater, container, false)
+
+
+
+
+        return binding.root
     }
 
 }

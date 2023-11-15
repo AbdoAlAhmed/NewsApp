@@ -11,7 +11,7 @@ interface Api {
     @GET("v2/top-headlines")
     suspend fun getBreakingNews(
         @Query("country")
-        country: String = "eg",
+        country: String? = "eg",
         @Query("page")
         page: Int = 1,
         @Query("apiKey")
